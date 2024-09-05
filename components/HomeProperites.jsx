@@ -21,7 +21,7 @@ const HomeProperites = async () => {
               <p>No properties found.</p>
             ) : (
               recentProperties.map((property) => (
-                <PropertyCard key={property.id} property={property} />
+                <PropertyCard key={property._id} property={property} />
               ))
             )}
           </div>
