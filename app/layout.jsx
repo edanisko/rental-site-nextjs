@@ -1,6 +1,10 @@
-import "@/assets/styles/globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import AuthProvider from "@/components/AuthProvider";
+import "@/assets/styles/globals.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // Copy and change this on any page where you want to change the metadata
 export const metadata = {
   title: "Property Pulse | Find the Perfect Rental",
@@ -11,13 +15,16 @@ export const metadata = {
 
 const MainLayout = ({ children }) => {
   return (
-    <html>
-      <body>
-        <Navbar />
-        <div>{children}</div>
-        <Footer />
-      </body>
-    </html>
+    <AuthProvider>
+      <html>
+        <body>
+          <Navbar />
+          <div>{children}</div>
+          <Footer />
+          <ToastContainer />
+        </body>
+      </html>
+    </AuthProvider>
   );
 };
 
